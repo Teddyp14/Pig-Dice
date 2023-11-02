@@ -12,7 +12,6 @@ function diceRoll() {
 }
 
 function getTurnScore(roll) {
-    // const roll = diceRoll();
     let turnScore = 0;
     if (roll >= 2) {
         turnScore += roll;
@@ -34,9 +33,7 @@ PlayerCreate.prototype.addOverallScore = function () {
     this.turnScore = 0;
 }
 
-
 //UI Logic
-
 let player1 = new PlayerCreate("", 0, 0, "");
 let player2 = new PlayerCreate("", 0, 0, "");
 
@@ -48,6 +45,7 @@ function winner1() {
     document.querySelector("h1#player1Wins").removeAttribute("class", "hidden");
     document.querySelector("div#scores").setAttribute("class", "hidden");
 }
+
 function winner2() {
     const removePlayer1 = document.querySelector("div#player1");
     const removePlayer2 = document.querySelector("div#player2");
@@ -67,18 +65,14 @@ function handleNameForm() {
     const p2Score = document.querySelector("span#secondPlayerScore");
     const p1Wins = document.querySelector("h1#player1Wins");
     const p2Wins = document.querySelector("h1#player2Wins");
-
-
     player1.playerName = p1Name;
     player2.playerName = p2Name;
-
     p1Header.innerText = player1.playerName;
     p2Header.innerText = player2.playerName;
     p1Score.innerText = player1.playerName + ": ";
     p2Score.innerText = player2.playerName + ": ";
     p1Wins.innerText = player1.playerName + " wins!";
     p2Wins.innerText = player2.playerName + " wins!";
-
     document.querySelector("div#player1").removeAttribute("class", "hidden");
     document.querySelector("div#scores").removeAttribute("class", "hidden");
     document.querySelector("form#playerNameForm").setAttribute("class", "hidden");
@@ -120,15 +114,14 @@ function rollDice1() {
     player1Roll.innerText = player1.playerRoll;
 
     if (player1.turnScore === 0) {
-        document.querySelector("#p2TurnScore").innerText = "0"
+        document.querySelector("#p2NumberRolled").innerText = "";
+        document.querySelector("#p2TurnScore").innerText = "0";
         document.querySelector("div#player2").removeAttribute("class", "hidden");
         document.querySelector("div#player1").setAttribute("class", "hidden");
     }
-
-    if (player1.overallScore >= 100) {
+    if ((player1.overallScore + player1.turnScore) >= 100) {
         winner1();
     }
-    console.log(player1.playerRoll)
     return player1.turnScore;
 }
 
@@ -138,20 +131,18 @@ function rollDice2() {
     const player2Roll = document.querySelector("#p2NumberRolled");
     player2Turn.innerText = player2.turnScore;
     player2Roll.innerText = player2.playerRoll;
-
     if (player2.turnScore === 0) {
+        document.querySelector("#p1NumberRolled").innerText = "";
         document.querySelector("#p1TurnScore").innerText = "0";
         document.querySelector("div#player1").removeAttribute("class", "hidden");
         document.querySelector("div#player2").setAttribute("class", "hidden");
     }
 
-    if (player2.overallScore >= 100) {
+    if ((player2.overallScore + player2.turnScore) >= 100) {
         winner2();
     }
-    console.log(player2.playerRoll)
     return player2.turnScore;
 }
-
 
 window.addEventListener("load", function () {
     document.querySelector("form#playerNameForm").addEventListener("submit", handleNameForm);
@@ -168,4 +159,3 @@ window.addEventListener("load", function () {
     document.querySelector("div#player2").setAttribute("class", "hidden");
     document.querySelector("div#scores").setAttribute("class", "hidden");
 });
-

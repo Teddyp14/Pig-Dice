@@ -6,9 +6,14 @@ body {
     display: none;
 }
 
-h1 {
+#title {
     text-align: center;
     padding: 5%;
+    color:white;
+    text-shadow: -2px 2px 4px #060606,
+        2px 2px 2px #060606,
+        2px -1px 0 #060606,
+        -0px -2px 0 #060606;
 }
 
 #player1 {
