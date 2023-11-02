@@ -96,3 +96,7 @@ label {
 #scores h1 {
     text-decoration: underline;
 }
+#selectMenu{
+    float: left;
+    margin: auto;
+}

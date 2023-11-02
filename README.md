@@ -12,7 +12,7 @@
 
 ## Description
 
-a program where two users can play Pig dice against each other.
+A Program Where Two Users Can Play Pig Dice Against Each Other.
 
 ## Github Page Link
 
@@ -29,7 +29,7 @@ https://p2nts.github.io/diceGame/
 
 ## Known Bugs
 
-* _None as of now_
+* _None As Of Now_
 
 
 ## License

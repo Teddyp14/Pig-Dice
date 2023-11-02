@@ -14,12 +14,22 @@
 <body>
 
     <h1 id="title"> Pig Dice</h1>
+    <form id="selectMenu">
+        <select id="selectOption">
+            <option value="twoPlayer">Two player</option>
+            <option id="soloMode" value="solo">Solo</option>
+        </select>
+        <button id="modeButton">Select Mode</button>
+    </form>
+
 
     <form id="playerNameForm">
         <label>Player 1 name: </label>
         <input type="text" id="p1Name"> <br>
-        <label>Player 2 name: </label>
-        <input type="text" id="p2Name"> <br>
+        <div id="p2Input">
+            <label>Player 2 name: </label>
+            <input type="text" id="p2Name"> <br>
+        </div>
         <button type="submit" id="startGame">Play!</button>
     </form>
 
