@@ -1,7 +1,7 @@
 //Business Logic
 function PlayerCreate(playerName, turnScore, overallScore) {
     this.playerName = playerName,
-        this.turnScore = turnScore;
+    this.turnScore = turnScore;
     this.overallScore = overallScore;
 }
 
@@ -111,7 +111,6 @@ function endTurn2() {
 
 function rollDice1() {
     player1.addTurnScore()
-    console.log(player1.turnScore);
     const player1Turn = document.querySelector("#p1TurnScore");
     player1Turn.innerText = player1.turnScore;
 
@@ -130,7 +129,6 @@ function rollDice1() {
 
 function rollDice2() {
     player2.addTurnScore();
-    console.log(player2.turnScore)
     const player2Turn = document.querySelector("#p2TurnScore");
     player2Turn.innerText = player2.turnScore;
 
