@@ -1,13 +1,16 @@
 body {
     background-color: rgb(230, 176, 208);
 }
+
 .hidden {
     display: none;
 }
+
 h1 {
     text-align: center;
     padding: 5%;
 }
+
 #player1 {
     float: left;
     padding: 10%;
@@ -15,24 +18,33 @@ h1 {
     border: 5px solid black;
     background-color: yellow;
     border-radius: 20px;
+    margin-left: 10%;
+    margin-right: 10%;
 }
+
 #player2 {
     float: left;
     padding: 10%;
     text-align: center;
+    color: white;
     border: 5px solid white;
     background-color: rgb(150, 24, 223);
     border-radius: 20px;
+    margin-left: 10%;
+    margin-right: 10%;
 }
+
 #scores {
     float: left;
     padding: 10%;
 }
+
 button {
     border-radius: 10px;
     padding: 10px;
     margin: 10px;
 }
+
 #player1Wins {
     background-color: white;
     color: red;
@@ -42,6 +54,7 @@ button {
     padding: 10%;
     margin: auto;
 }
+
 #player2Wins {
     background-color: white;
     color: red;
@@ -51,17 +64,21 @@ button {
     padding: 10%;
     margin: auto;
 }
+
 form {
     text-align: center;
-    margin-left: 40%;
-    margin-right:40%;
+    margin-left: 35%;
+    margin-right: 35%;
 }
 
 form input {
     margin: 5%;
+    align-items: center;
+    border: 2px solid black;
+    border-radius: 10px;
 }
 
-label{
+label {
     text-align: center;
 }
 

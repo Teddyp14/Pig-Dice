@@ -1,8 +1,9 @@
 //Business Logic
-function PlayerCreate(playerName, turnScore, overallScore) {
-    this.playerName = playerName,
+function PlayerCreate(playerName, turnScore, overallScore, playerRoll) {
+    this.playerName = playerName;
     this.turnScore = turnScore;
     this.overallScore = overallScore;
+    this.playerRoll;
 }
 
 function diceRoll() {
@@ -10,8 +11,8 @@ function diceRoll() {
     return randomInt;
 }
 
-function getTurnScore() {
-    const roll = diceRoll();
+function getTurnScore(roll) {
+    // const roll = diceRoll();
     let turnScore = 0;
     if (roll >= 2) {
         turnScore += roll;
@@ -20,7 +21,9 @@ function getTurnScore() {
 }
 
 PlayerCreate.prototype.addTurnScore = function () {
-    const turnScoreValue = getTurnScore();
+    const roll = diceRoll();
+    this.playerRoll = roll;
+    const turnScoreValue = getTurnScore(roll);
     if (turnScoreValue === 0) {
         this.turnScore = 0;
     } else { this.turnScore += turnScoreValue };
@@ -34,8 +37,8 @@ PlayerCreate.prototype.addOverallScore = function () {
 
 //UI Logic
 
-let player1 = new PlayerCreate("", 0, 0);
-let player2 = new PlayerCreate("", 0, 0);
+let player1 = new PlayerCreate("", 0, 0, "");
+let player2 = new PlayerCreate("", 0, 0, "");
 
 function winner1() {
     const removePlayer1 = document.querySelector("div#player1");
@@ -64,15 +67,15 @@ function handleNameForm() {
     const p2Score = document.querySelector("span#secondPlayerScore");
     const p1Wins = document.querySelector("h1#player1Wins");
     const p2Wins = document.querySelector("h1#player2Wins");
-    
+
 
     player1.playerName = p1Name;
     player2.playerName = p2Name;
 
     p1Header.innerText = player1.playerName;
     p2Header.innerText = player2.playerName;
-    p2Score.innerText = player2.playerName + ": ";
     p1Score.innerText = player1.playerName + ": ";
+    p2Score.innerText = player2.playerName + ": ";
     p1Wins.innerText = player1.playerName + " wins!";
     p2Wins.innerText = player2.playerName + " wins!";
 
@@ -118,12 +121,12 @@ function rollDice1() {
         document.querySelector("#p2TurnScore").innerText = "0"
         document.querySelector("div#player2").removeAttribute("class", "hidden");
         document.querySelector("div#player1").setAttribute("class", "hidden");
-    } 
-    
+    }
+
     if (player1.overallScore >= 100) {
         winner1();
     }
-
+    console.log(player1.playerRoll)
     return player1.turnScore;
 }
 
@@ -141,7 +144,7 @@ function rollDice2() {
     if (player2.overallScore >= 100) {
         winner2();
     }
-
+    console.log(player2.playerRoll)
     return player2.turnScore;
 }
 
