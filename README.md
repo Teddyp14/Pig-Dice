@@ -12,7 +12,7 @@
 
 ## Description
 
-_a program where two users can play Pig dice against each other. _
+a program where two users can play Pig dice against each other.
 
 ## Github Page Link
 
