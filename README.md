@@ -12,24 +12,24 @@
 
 ## Description
 
-_a program where two users can play Pig dice against each other. "_
+_a program where two users can play Pig dice against each other. _
 
 ## Github Page Link
 
 https://p2nts.github.io/diceGame/
 
 ## Setup/Installation Requirements
-* _DownLoad Live Server Extension for VsCode_
+* _DownLoad Live Server Extension for VSCode_
 * _Make Sure to have the Live server extension for VSCode_
 * _Click "Go Live"  On Bottom Right Or Right Click And press "Open With Live Server On Index.html_
-* _Or Click GhPages Link Above _
+* _Or Click GhPages Link Above_
 
 
 
 
 ## Known Bugs
 
-* _None as of now._
+* _None as of now_
 
 
 ## License

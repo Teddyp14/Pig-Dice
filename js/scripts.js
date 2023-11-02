@@ -1,7 +1,7 @@
 //Business Logic
 function PlayerCreate(playerName, turnScore, overallScore) {
     this.playerName = playerName,
-    this.turnScore = turnScore;
+        this.turnScore = turnScore;
     this.overallScore = overallScore;
 }
 
@@ -37,6 +37,23 @@ PlayerCreate.prototype.addOverallScore = function () {
 let player1 = new PlayerCreate("", 0, 0);
 let player2 = new PlayerCreate("", 0, 0);
 
+function winner1() {
+    const removePlayer1 = document.querySelector("div#player1");
+    const removePlayer2 = document.querySelector("div#player2");
+    removePlayer1.remove();
+    removePlayer2.remove();
+    document.querySelector("h1#player1Wins").removeAttribute("class", "hidden");
+    document.querySelector("div#scores").setAttribute("class", "hidden");
+}
+function winner2() {
+    const removePlayer1 = document.querySelector("div#player1");
+    const removePlayer2 = document.querySelector("div#player2");
+    removePlayer1.remove();
+    removePlayer2.remove();
+    document.querySelector("h1#player2Wins").removeAttribute("class", "hidden");
+    document.querySelector("div#scores").setAttribute("class", "hidden");
+}
+
 function handleNameForm() {
     event.preventDefault();
     const p1Name = document.querySelector("input#p1Name").value;
@@ -45,7 +62,10 @@ function handleNameForm() {
     const p2Header = document.querySelector("h2#secondPlayer");
     const p1Score = document.querySelector("span#firstPlayerScore");
     const p2Score = document.querySelector("span#secondPlayerScore");
-   
+    const p1Wins = document.querySelector("h1#player1Wins");
+    const p2Wins = document.querySelector("h1#player2Wins");
+    
+
     player1.playerName = p1Name;
     player2.playerName = p2Name;
 
@@ -53,10 +73,12 @@ function handleNameForm() {
     p2Header.innerText = player2.playerName;
     p2Score.innerText = player2.playerName + ": ";
     p1Score.innerText = player1.playerName + ": ";
+    p1Wins.innerText = player1.playerName + " wins!";
+    p2Wins.innerText = player2.playerName + " wins!";
 
-    // document.querySelector("div#player1").removeAttribute("class", "hidden");
-    // document.querySelector("div#scores").removeAttribute("class", "hidden");
-    // document.querySelector("form#playerNameForm").setAttribute("id", "hidden");
+    document.querySelector("div#player1").removeAttribute("class", "hidden");
+    document.querySelector("div#scores").removeAttribute("class", "hidden");
+    document.querySelector("form#playerNameForm").setAttribute("class", "hidden");
 }
 
 function endTurn1() {
@@ -66,8 +88,7 @@ function endTurn1() {
     h2.append(player1.overallScore);
     player1Score.innerText = h2.textContent;
     if (player1.overallScore >= 100) {
-        document.querySelector("h1#player1Wins").removeAttribute("class", "hidden");
-        document.querySelector("div#scores").setAttribute("class", "hidden");
+        winner1();
     }
     document.querySelector("#p2TurnScore").innerText = "0"
     document.querySelector("div#player2").removeAttribute("class", "hidden");
@@ -81,8 +102,7 @@ function endTurn2() {
     h2.append(player2.overallScore);
     player2Score.innerText = h2.textContent;
     if (player2.overallScore >= 100) {
-        document.querySelector("h1#player2Wins").removeAttribute("class", "hidden");
-        document.querySelector("div#scores").setAttribute("class", "hidden");
+        winner2();
     }
     document.querySelector("#p1TurnScore").innerText = "0"
     document.querySelector("div#player1").removeAttribute("class", "hidden");
@@ -99,6 +119,10 @@ function rollDice1() {
         document.querySelector("#p2TurnScore").innerText = "0"
         document.querySelector("div#player2").removeAttribute("class", "hidden");
         document.querySelector("div#player1").setAttribute("class", "hidden");
+    } 
+    
+    if (player1.overallScore >= 100) {
+        winner1();
     }
 
     return player1.turnScore;
@@ -111,13 +135,18 @@ function rollDice2() {
     player2Turn.innerText = player2.turnScore;
 
     if (player2.turnScore === 0) {
-        document.querySelector("#p2TurnScore").innerText = "0";
+        document.querySelector("#p1TurnScore").innerText = "0";
         document.querySelector("div#player1").removeAttribute("class", "hidden");
         document.querySelector("div#player2").setAttribute("class", "hidden");
     }
 
+    if (player2.overallScore >= 100) {
+        winner2();
+    }
+
     return player2.turnScore;
 }
+
 
 window.addEventListener("load", function () {
     document.querySelector("form#playerNameForm").addEventListener("submit", handleNameForm);
@@ -129,9 +158,9 @@ window.addEventListener("load", function () {
 
     document.querySelector("h1#player1Wins").setAttribute("class", "hidden");
     document.querySelector("h1#player2Wins").setAttribute("class", "hidden");
-    
-    // document.querySelector("div#player1").setAttribute("class", "hidden");
+
+    document.querySelector("div#player1").setAttribute("class", "hidden");
     document.querySelector("div#player2").setAttribute("class", "hidden");
-    // document.querySelector("div#scores").setAttribute("class", "hidden");
+    document.querySelector("div#scores").setAttribute("class", "hidden");
 });
 
