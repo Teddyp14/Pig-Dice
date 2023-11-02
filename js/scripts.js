@@ -3,7 +3,7 @@ function PlayerCreate(playerName, turnScore, overallScore, playerRoll) {
     this.playerName = playerName;
     this.turnScore = turnScore;
     this.overallScore = overallScore;
-    this.playerRoll;
+    this.playerRoll = playerRoll;
 }
 
 function diceRoll() {
@@ -115,7 +115,9 @@ function endTurn2() {
 function rollDice1() {
     player1.addTurnScore()
     const player1Turn = document.querySelector("#p1TurnScore");
+    const player1Roll = document.querySelector("#p1NumberRolled");
     player1Turn.innerText = player1.turnScore;
+    player1Roll.innerText = player1.playerRoll;
 
     if (player1.turnScore === 0) {
         document.querySelector("#p2TurnScore").innerText = "0"
@@ -133,7 +135,9 @@ function rollDice1() {
 function rollDice2() {
     player2.addTurnScore();
     const player2Turn = document.querySelector("#p2TurnScore");
+    const player2Roll = document.querySelector("#p2NumberRolled");
     player2Turn.innerText = player2.turnScore;
+    player2Roll.innerText = player2.playerRoll;
 
     if (player2.turnScore === 0) {
         document.querySelector("#p1TurnScore").innerText = "0";
