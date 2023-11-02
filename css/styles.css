@@ -1,0 +1,62 @@
+body {
+    background-color: rgb(230, 176, 208);
+}
+.hidden {
+    display: none;
+}
+#hidden {
+    display: none;
+}
+h1 {
+    text-align: center;
+    padding: 5%;
+}
+#player1 {
+    float: left;
+    padding: 10%;
+    text-align: center;
+    border: 5px solid black;
+    background-color: yellow;
+    border-radius: 20px;
+}
+#player2 {
+    float: left;
+    padding: 10%;
+    text-align: center;
+    border: 5px solid white;
+    background-color: rgb(150, 24, 223);
+    border-radius: 20px;
+}
+#scores {
+    float: left;
+    padding: 10%;
+}
+button {
+    border-radius: 10px;
+    padding: 10px;
+    margin: 10px;
+}
+#player1Wins {
+    background-color: white;
+    color: red;
+    width: 30vw;
+    border: 5px solid black;
+    border-radius: 30px;
+    padding: 10%;
+    float: right;
+}
+#player2Wins {
+    background-color: white;
+    color: red;
+    width: 30vw;
+    border: 5px solid black;
+    border-radius: 30px;
+    padding: 10%;
+    float: right;
+}
+#playerNameForm {
+    text-align: center;
+}
+label{
+    text-align: center;
+}
